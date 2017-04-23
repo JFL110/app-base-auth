@@ -134,7 +134,7 @@ public class DefaultRollingKeyStore implements RollingKeyStore.Reader{
 	
 	
 	private void logKeys(List<RollingKey> sortedKeys){
-		for(int i = 1; i < sortedKeys.size(); i++){
+		for(int i = 0; i < sortedKeys.size(); i++){
 			RollingKey key = sortedKeys.get(i);
 			System.out.println("Key["+i+"] "+key.keyNumber()+" "+key.validFrom()+" "+key.validForSeconds());
 		}
