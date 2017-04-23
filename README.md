@@ -1,6 +1,4 @@
 ## Maven Repository for App Base Auth
-Module to add authentication fundamentals to a web application 
-
 
 Example Gradle usage:
 ~~~~
