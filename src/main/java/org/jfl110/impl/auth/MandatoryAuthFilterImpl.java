@@ -2,6 +2,9 @@ package org.jfl110.impl.auth;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
+import javax.inject.Provider;
+import javax.inject.Singleton;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
@@ -15,9 +18,6 @@ import org.jfl110.api.auth.InvalidAuthException;
 import org.jfl110.api.auth.MandatoryAuthFilter;
 import org.jfl110.spi.auth.RequestAuthenticationService;
 
-import com.google.inject.Inject;
-import com.google.inject.Provider;
-import com.google.inject.Singleton;
 
 @Singleton
 public class MandatoryAuthFilterImpl implements MandatoryAuthFilter {

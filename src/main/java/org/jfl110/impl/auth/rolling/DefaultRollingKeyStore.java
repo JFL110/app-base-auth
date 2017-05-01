@@ -4,6 +4,10 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Logger;
 
+import javax.inject.Inject;
+import javax.inject.Provider;
+import javax.inject.Singleton;
+
 import org.jfl110.api.auth.rolling.KeyStoreLookupResult;
 import org.jfl110.api.auth.rolling.RollingKey;
 import org.jfl110.api.auth.rolling.RollingKeyStore;
@@ -13,9 +17,6 @@ import org.joda.time.LocalDateTime;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.FluentIterable;
-import com.google.inject.Inject;
-import com.google.inject.Provider;
-import com.google.inject.Singleton;
 
 @Singleton
 public class DefaultRollingKeyStore implements RollingKeyStore.Reader{

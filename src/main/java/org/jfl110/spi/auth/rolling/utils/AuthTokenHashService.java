@@ -2,6 +2,9 @@ package org.jfl110.spi.auth.rolling.utils;
 
 import java.nio.charset.Charset;
 
+import javax.inject.Inject;
+import javax.inject.Provider;
+
 import org.apache.commons.codec.binary.Hex;
 import org.jfl110.api.auth.AuthTokenClaim;
 import org.jfl110.api.auth.AuthTokenStatus;
@@ -15,8 +18,6 @@ import org.jfl110.spi.auth.utils.HashingService;
 import com.google.common.base.Joiner;
 import com.google.common.primitives.Bytes;
 import com.google.inject.ImplementedBy;
-import com.google.inject.Inject;
-import com.google.inject.Provider;
 
 /**
  * Hashes and validates AuthTokens. The default implementation of

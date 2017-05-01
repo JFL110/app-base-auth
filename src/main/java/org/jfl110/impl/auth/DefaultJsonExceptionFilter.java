@@ -3,6 +3,7 @@ package org.jfl110.impl.auth;
 import java.io.IOException;
 import java.util.logging.Logger;
 
+import javax.inject.Singleton;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
@@ -13,7 +14,6 @@ import org.jfl110.api.jsonexception.JsonException;
 import org.jfl110.api.jsonexception.JsonExceptionFilter;
 import org.jfl110.api.jsonexception.JsonExceptionLogLevel;
 
-import com.google.inject.Singleton;
 
 /**
  * Filter to catch JsonException s and print the Json.

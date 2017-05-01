@@ -3,6 +3,9 @@ package org.jfl110.impl.auth.rolling;
 import java.util.Comparator;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Provider;
+
 import org.jfl110.api.auth.rolling.RollingKey;
 import org.jfl110.api.auth.rolling.RollingKeyStore;
 import org.jfl110.spi.auth.rolling.RollingKeyService;
@@ -12,8 +15,6 @@ import org.joda.time.LocalDateTime;
 import com.google.common.base.Predicate;
 import com.google.common.collect.FluentIterable;
 import com.google.common.collect.Lists;
-import com.google.inject.Inject;
-import com.google.inject.Provider;
 
 public class DefaultRollingKeyStoreUpdater implements RollingKeyStore.Updater{
 	
