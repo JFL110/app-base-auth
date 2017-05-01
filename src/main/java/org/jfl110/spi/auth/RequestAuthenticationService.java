@@ -1,6 +1,6 @@
 package org.jfl110.spi.auth;
 
-import javax.servlet.ServletRequest;
+import javax.ws.rs.container.ContainerRequestContext;
 
 import org.jfl110.api.auth.AuthenticationAttempt;
 
@@ -18,5 +18,6 @@ public interface RequestAuthenticationService {
 	 * been successful, an exception should not be thrown by an unsuccessful
 	 * authentication.
 	 */
-	AuthenticationAttempt authenticateRequest(ServletRequest request);
+	AuthenticationAttempt authenticateRequest(ContainerRequestContext request);
+
 }

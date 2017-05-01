@@ -1,5 +1,7 @@
 package org.jfl110.spi.auth.utils;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 /**
@@ -14,7 +16,8 @@ public class TestHashingServiceImpl {
 	@Test
 	public void test() throws Exception{
 		byte[] message = "Hello".getBytes("UTF-8");
-		hashingService.hash(message);
+		byte[] hashedMessage = hashingService.hash(message);
+		assertTrue(hashedMessage.length > message.length);
 	}
 	
 }

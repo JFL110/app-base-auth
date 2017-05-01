@@ -1,6 +1,4 @@
-package org.jfl110.api.auth.rolling;
-
-import org.jfl110.api.auth.AuthTokenClaim;
+package org.jfl110.api.auth;
 
 /**
  * Details of a token which may or may not be valid

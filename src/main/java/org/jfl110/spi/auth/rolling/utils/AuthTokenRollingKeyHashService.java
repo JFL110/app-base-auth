@@ -8,7 +8,7 @@ import javax.inject.Provider;
 import org.apache.commons.codec.binary.Hex;
 import org.jfl110.api.auth.AuthTokenClaim;
 import org.jfl110.api.auth.AuthTokenStatus;
-import org.jfl110.api.auth.rolling.HashedAuthToken;
+import org.jfl110.api.auth.HashedAuthToken;
 import org.jfl110.api.auth.rolling.KeyStoreLookupResult;
 import org.jfl110.api.auth.rolling.RollingKey;
 import org.jfl110.api.auth.rolling.RollingKeyStore;
@@ -20,13 +20,12 @@ import com.google.common.primitives.Bytes;
 import com.google.inject.ImplementedBy;
 
 /**
- * Hashes and validates AuthTokens. The default implementation of
- * this utility can be overridden.
+ * Hashes and validates AuthTokens using RollingKeys. 
  *
  * @author JFL110
  */
-@ImplementedBy(AuthTokenHashService.AuthTokenHashServiceImpl.class)
-public interface AuthTokenHashService {
+@ImplementedBy(AuthTokenRollingKeyHashService.AuthTokenRollingKeyHashServiceImpl.class)
+public interface AuthTokenRollingKeyHashService {
 	
 	/**
 	 * Produces a hash for the given claim.
@@ -45,7 +44,7 @@ public interface AuthTokenHashService {
 	 *
 	 * @author JFL110
 	 */
-	static class AuthTokenHashServiceImpl implements AuthTokenHashService{
+	static class AuthTokenRollingKeyHashServiceImpl implements AuthTokenRollingKeyHashService{
 		
 		private static final Charset CHARSET = Charset.forName("UTF-8");
 		
@@ -53,7 +52,7 @@ public interface AuthTokenHashService {
 		private final Provider<HashingService> hashingService;
 		
 		@Inject
-		AuthTokenHashServiceImpl(Provider<RollingKeyStore.Reader> rollingKeyStoreReader,
+		AuthTokenRollingKeyHashServiceImpl(Provider<RollingKeyStore.Reader> rollingKeyStoreReader,
 				Provider<HashingService> hashingService){
 			this.rollingKeyStoreReader = rollingKeyStoreReader;
 			this.hashingService = hashingService;

@@ -1,6 +1,6 @@
 package org.jfl110.api.auth;
 
-import org.jfl110.api.jsonexception.ErrorDescriptionJsonException;
+import org.jfl110.api.clientexception.ErrorDescriptionClientException;
 
 /**
  * Exception thrown when an error occured during the authentication process.
@@ -8,7 +8,12 @@ import org.jfl110.api.jsonexception.ErrorDescriptionJsonException;
  * @author JFL110
  */
 @SuppressWarnings("serial")
-public class InvalidAuthException extends ErrorDescriptionJsonException{
+public class InvalidAuthException extends ErrorDescriptionClientException{
+	
+	public InvalidAuthException(AuthTokenStatus authTokenStatus){
+		super(authTokenStatus.toErrorCode(),"");
+	}
+	
 	
 	public InvalidAuthException(String errorCode){
 		super(errorCode,"");

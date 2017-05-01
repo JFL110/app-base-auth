@@ -1,6 +1,6 @@
 package org.jfl110.impl.auth;
 
-import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
 import org.jfl110.api.auth.AuthenticationAttempt;
 import org.jfl110.api.auth.AuthenticationAttemptRequestManager;
@@ -10,12 +10,12 @@ public class DefaultAuthenticationAttemptRequestManager implements Authenticatio
 	private static final String REQUEST_ATTRIBUTE_KEY = "auth-attempt";
 
 	@Override
-	public void insertIntoRequest(ServletRequest request, AuthenticationAttempt authAttempt) {
+	public void insertIntoRequest(HttpServletRequest request, AuthenticationAttempt authAttempt) {
 		request.setAttribute(REQUEST_ATTRIBUTE_KEY, authAttempt);
 	}
 
 	@Override
-	public AuthenticationAttempt retrieveFromRequest(ServletRequest request) {
+	public AuthenticationAttempt retrieveFromRequest(HttpServletRequest request) {
 
 		Object authAttempt = request.getAttribute(REQUEST_ATTRIBUTE_KEY);
 

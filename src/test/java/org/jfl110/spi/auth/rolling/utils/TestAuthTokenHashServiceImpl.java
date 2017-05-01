@@ -12,7 +12,7 @@ import java.nio.charset.Charset;
 import org.apache.commons.codec.binary.Hex;
 import org.jfl110.api.auth.AuthTokenClaim;
 import org.jfl110.api.auth.AuthTokenStatus;
-import org.jfl110.api.auth.rolling.HashedAuthToken;
+import org.jfl110.api.auth.HashedAuthToken;
 import org.jfl110.api.auth.rolling.KeyStoreLookupResult;
 import org.jfl110.api.auth.rolling.RollingKey;
 import org.jfl110.api.auth.rolling.RollingKeyStore;
@@ -27,7 +27,7 @@ import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 
 /**
- * Tests AuthTokenHashService
+ * Tests AuthTokenRollingKeyHashService
  *
  * @author JFL110
  */
@@ -37,8 +37,8 @@ public class TestAuthTokenHashServiceImpl{
 
 	private final RollingKeyStore.Reader keyStoreReader = mock(RollingKeyStore.Reader .class);
 	private final HashingService hashingService = mock(HashingService.class);
-	private final AuthTokenHashService service = new AuthTokenHashService
-								.AuthTokenHashServiceImpl(of(keyStoreReader), of(hashingService));
+	private final AuthTokenRollingKeyHashService service = new AuthTokenRollingKeyHashService
+								.AuthTokenRollingKeyHashServiceImpl(of(keyStoreReader), of(hashingService));
 	
 	private final Charset charset = Charset.forName("UTF-8");
 	
@@ -119,6 +119,7 @@ public class TestAuthTokenHashServiceImpl{
 		when(tuple.lookupResult()).thenReturn(lookupResult);
 		return tuple;
 	}
+	
 	
 	private KeyLookupResultTuple presentKeyTuple(byte[] keyBytes){
 		RollingKey key = mock(RollingKey.class);

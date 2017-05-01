@@ -1,6 +1,6 @@
 package org.jfl110.api.auth;
 
-import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Manages the getting/setting of AuthenticationAttempts in the ServletRequest.
@@ -14,12 +14,11 @@ public interface AuthenticationAttemptRequestManager {
 	/**
 	 * Puts the AuthenticationAttempt into the ServletRequest
 	 */
-	void insertIntoRequest(ServletRequest request,AuthenticationAttempt authAttempt);
+	void insertIntoRequest(HttpServletRequest request,AuthenticationAttempt authAttempt);
 	
 	
 	/**
 	 * Gets the AuthenticationAttempt from the ServletRequest
 	 */
-	AuthenticationAttempt retrieveFromRequest(ServletRequest request);
-
+	AuthenticationAttempt retrieveFromRequest(HttpServletRequest request);
 }

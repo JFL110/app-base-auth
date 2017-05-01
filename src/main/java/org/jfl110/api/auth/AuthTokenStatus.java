@@ -4,5 +4,10 @@ public enum AuthTokenStatus{
 	VALID,
 	OTHER_NOT_VALID,
 	EXPIRED,
-	NOT_FOUND
+	NOT_FOUND;
+	
+	
+	public String toErrorCode(){
+		return "TOKEN_"+toString();
+	}
 }
